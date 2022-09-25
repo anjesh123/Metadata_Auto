@@ -1,0 +1,4 @@
+26-30 Sep
+- Boomi KT from Jainendra
+- Create , Delete (E2E) with Boomi with Jainendra
+- Dhruv config KT 

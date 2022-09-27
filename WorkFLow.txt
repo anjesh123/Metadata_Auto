@@ -1,0 +1,60 @@
+Backend
+
+Controller
+- /create/id
+- /save/id
+- /edit/id
+- /delete/id
+
+
+Service
+
+Service1 - MetadataService
+/create or save/id
+- SaveAll(id)(create/Save)
+  - SavePm(Doubt)
+    -SaveSections
+      -SaveSteps....
+
+// - Reset
+
+- Delete(id)
+  - Delete (interface)
+
+- Edit(id)
+
+- Post(id)
+
+
+
+Service2- BoomiService
+- Boomi Auth(cookies)
+- Validate Ipack(ipackname)
+- ProcessProperties { return Guidedprocessproperties;}
+
+
+Repository
+- Parent Metadata
+  - ETF
+  - Sections
+	- Steps
+		-Component
+			-Config
+				-Input
+
+
+UI Flow 
+
+2 webpage
+
+1 - Dhruv - Create , Reset, Save
+
+
+2 - Edit , Delete
+
+Component1 - Installed Integrations
+Delete
+
+
+Component2 - In progress integrations
+Edit , Delete

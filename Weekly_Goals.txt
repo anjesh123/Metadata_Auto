@@ -1,0 +1,9 @@
+26-30 Sep
+- Boomi KT from Jainendra
+- Create , Delete (E2E) with Boomi with Jainendra
+- Dhruv config KT 
+
+Today - 
+- Boomi Auth
+- APis 
+- HOw to fetch process properties from boomi ipacks .

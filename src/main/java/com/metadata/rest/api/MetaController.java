@@ -1,21 +1,18 @@
 package com.metadata.rest.api;
 import java.util.List;
 
+import com.metadata.adapter.api.BoomiVerificationService;
+import com.metadata.rest.dto.RequestObject;
+import com.metadata.rest.dto.ResponseObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 //import org.springframework.web.bind.annotation.RequestParam;
 //import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
 
- //import static com.metadata.common.Constants.METASERVICE_API_V1;
+//import static com.metadata.common.Constants.METASERVICE_API_V1;
 import com.metadata.adapter.api.RestAdapterV1;
 import com.metadata.rest.dto.MetadataModel;
 
@@ -25,10 +22,12 @@ import com.metadata.rest.dto.MetadataModel;
 public class MetaController {
 	
 	private final RestAdapterV1 restAdapterV1;
+	private final BoomiVerificationService boomiVerificationService;
 	
 	@Autowired
-	public MetaController(final RestAdapterV1 restAdapterV1) {
+	public MetaController(final RestAdapterV1 restAdapterV1, BoomiVerificationService boomiVerificationService) {
 		this.restAdapterV1 = restAdapterV1;
+		this.boomiVerificationService = boomiVerificationService;
 	}
 	@GetMapping("metadata")
 	public List<MetadataModel> getDetails() 
@@ -59,7 +58,14 @@ public class MetaController {
 		return this.restAdapterV1.getDetailByID(id); 
 	}
 
-	 
+//	@PostMapping("metadataBoomi")
+	@RequestMapping(value = "/metadataBoomi", method = RequestMethod.POST,
+			consumes = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseObject verifyBoomiConnectivity(@RequestBody RequestObject request){
+		return this.boomiVerificationService.verifyBoomiConnectivity(request);
+	}
+
+
 
 	
 }

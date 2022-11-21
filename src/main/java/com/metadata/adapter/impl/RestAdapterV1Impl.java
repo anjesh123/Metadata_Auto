@@ -14,7 +14,7 @@ import com.metadata.common.JsonUtil;
 import com.metadata.core.entities.MetaDO;
 import com.metadata.core.service.api.MetaService;
 import com.metadata.rest.dto.MetadataModel;
-import com.metadata.rest.dto.MetadataObject;
+//import com.metadata.rest.dto.MetadataObject;
 
 @Component
 public class RestAdapterV1Impl implements RestAdapterV1{

@@ -6,7 +6,7 @@ public class ResponseObject {
 
     private ProcessDetails processDetails;
 
-    private List<CrtDetails> crtDetails;
+    private List<String> crtDetails;
 
     private List<ParameterDetails> parameterDetails;
 
@@ -18,11 +18,11 @@ public class ResponseObject {
         this.processDetails = processDetails;
     }
 
-    public List<CrtDetails> getCrtDetails() {
+    public List<String> getCrtDetails() {
         return crtDetails;
     }
 
-    public void setCrtDetails(List<CrtDetails> crtDetails) {
+    public void setCrtDetails(List<String> crtDetails) {
         this.crtDetails = crtDetails;
     }
 

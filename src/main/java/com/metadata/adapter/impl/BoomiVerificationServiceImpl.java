@@ -64,7 +64,7 @@ public class BoomiVerificationServiceImpl implements BoomiVerificationService {
             response.setProcessDetails(processDetail);
 
             //getCrtDetails(accId,envId,processName)
-            List<CrtDetails> crtDetail = getCrtDetails(boomiInformation.getEnvironmentID(),boomiInformation.getAccountId(), request.getProcessName());
+            List<String> crtDetail = getCrtDetails(boomiInformation.getEnvironmentID(),boomiInformation.getAccountId(), request.getProcessName());
             response.setCrtDetails(crtDetail);
 
 
@@ -168,10 +168,11 @@ public class BoomiVerificationServiceImpl implements BoomiVerificationService {
 
     }
 
-    public List<CrtDetails>  getCrtDetails(String environmentId,String primaryAcctId,String processName){
+    public List<String>  getCrtDetails(String environmentId,String primaryAcctId,String processName){
         logger.info("METHOD START- [ArrayList<CrtDetails>]  environment Id {},primaryAcctId {}", environmentId,
                 primaryAcctId);
-        List<CrtDetails> crtDetailsList = new ArrayList<>();
+//        List<CrtDetails> crtDetailsList = new ArrayList<>();
+        List<String> crtDetailsList = new ArrayList<>();
         try {
             EnvironmentExtension environmentExtension = getEnvironmentExtension(environmentId, primaryAcctId);
             if (environmentExtension.getCrossReferences() != null ? !environmentExtension.getCrossReferences().getCrossReference().isEmpty() : false ) {
@@ -179,10 +180,11 @@ public class BoomiVerificationServiceImpl implements BoomiVerificationService {
                 if (!(crossReferences.isEmpty())) {
                     crossReferences.forEach(updatedCrossReference -> {
                         if (updatedCrossReference.getName().substring(0,updatedCrossReference.getName().indexOf("_")).equals(processName)) {
-                            CrtDetails crtDetails = new CrtDetails();
+//                            CrtDetails crtDetails = new CrtDetails();
 //                                crtDetails.setCrtId(updatedCrossReference.getId());
-                            crtDetails.setCrtName(updatedCrossReference.getName());
-                            crtDetailsList.add(crtDetails);
+//                            crtDetails.setCrtName(updatedCrossReference.getName());
+//                            String crtString = crtDetails.getCrtName();
+                            crtDetailsList.add(updatedCrossReference.getName().substring(updatedCrossReference.getName().indexOf("_"),updatedCrossReference.getName().length()-1));
                         }
                     });
                 }
